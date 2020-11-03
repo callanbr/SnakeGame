@@ -7,7 +7,7 @@ public class App {
 
         // Set window settings
         window.setTitle("Snake Game");
-        window.setSize(500, 500);
+        window.setSize(800, 800);
         window.setVisible(true);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

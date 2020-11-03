@@ -11,6 +11,7 @@ public class DataOfSquare {
         ColorList.add(Color.white); // Blank = 0
         ColorList.add(Color.red); // Food = 1
         ColorList.add(Color.blue); // Snake = 2
+        ColorList.add(Color.orange); // test = 3
         color = c;
         square = new SquarePanel(ColorList.get(color));
     }
