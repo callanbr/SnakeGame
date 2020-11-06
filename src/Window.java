@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 public class Window extends JFrame {
     public static ArrayList<ArrayList<DataOfSquare>> Grid;
-    int gridNumber = 40;
+    int gridNumber = SnakeController.gridNumber;
     public static int width = 40;
     public static int height = 40;
 

@@ -9,7 +9,7 @@ public class SnakeController extends Thread {
     int snakeSize = 3;
     long snakeSpeed = 100;
     public static int snakeDirection;
-    int gridNumber = 40;
+    static int gridNumber = 40;
     int gridIdx = gridNumber - 1;
 
     SnakeController(XY pos) {
@@ -48,7 +48,16 @@ public class SnakeController extends Thread {
 
     private void checkCollision() {
         XY pos = positions.get(positions.size() - 1);
-        // TODO if snake eats self
+        for (int i = 0; i <= positions.size() - 2; i++) {
+            boolean eatSnake = pos.getX() == positions.get(i).getX() && pos.getY() == positions.get(i).getY();
+            if (eatSnake) {
+                System.out.println("Game Over!");
+                // TODO - Add notification
+                while (true) {
+                    pauseSnake();
+                }
+            }
+        }
 
         // If snake eats food
         boolean eatingFood = pos.getX() == foodPosition.y && pos.getY() == foodPosition.x;
@@ -58,11 +67,9 @@ public class SnakeController extends Thread {
             positionFood(foodPosition);
         }
         if (snakeSize > 9 && snakeSize < 35) {
-            snakeSpeed = 80;
-            System.out.println(snakeSpeed);
+            snakeSpeed = 90;
         } else if (snakeSize >= 35) {
-            snakeSpeed = 60;
-            System.out.println(snakeSpeed);
+            snakeSpeed = 80;
         } else {
             snakeSpeed = 100;
         }
